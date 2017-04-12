@@ -145,5 +145,22 @@ public class ArrayHeapTest {
         assertEquals(expResult, result);
         
     }
+
+    
+    
+
+    /**
+     * Test of heapSort method, of class ArrayHeap.
+     */
+    @Test
+    public void testHeapSort() throws Exception {
+        System.out.println("heapSort");
+        int[] data = {2, 4, 6, 9, 3, 5, 10, 1};
+        ArrayHeap<Integer> instance = new ArrayHeap<>();
+        int[] expResult = {1, 2, 3, 4, 5, 6, 9, 10};
+        //int[] result = instance.heapSort((Integer) data);
+        //assertArrayEquals(expResult, result);
+        
+    }
     
 }
