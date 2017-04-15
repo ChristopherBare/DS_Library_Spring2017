@@ -5,6 +5,8 @@
  */
 package DataStructures;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -156,11 +158,18 @@ public class ArrayHeapTest {
     public void testHeapSort() throws Exception {
         System.out.println("heapSort");
         int[] data = {2, 4, 6, 9, 3, 5, 10, 1};
-        ArrayHeap<Integer> instance = new ArrayHeap<>();
-        int[] expResult = {1, 2, 3, 4, 5, 6, 9, 10};
-        //int[] result = instance.heapSort((Integer) data);
-        //assertArrayEquals(expResult, result);
         
+        ArrayHeap<Integer> instance = new ArrayHeap<>();
+        for (int i = 0; i < data.length; i++){
+            instance.addElement(data[i]);
+            
+        }
+        //System.out.println(instance.toString());
+        Integer[] expResult = {1, 2, 3, 4, 5, 6, 9, 10};
+        Integer[] result = instance.heapSort();
+        //System.out.println(Arrays.toString(result));
+        assertArrayEquals(expResult, result);
+        System.out.println(Arrays.toString(instance.heapSort()));
     }
     
 }

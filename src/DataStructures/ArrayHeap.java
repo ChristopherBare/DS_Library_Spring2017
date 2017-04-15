@@ -225,24 +225,34 @@ public class ArrayHeap<T> implements HeapADT<T> {
         return "ArrayHeap{" + "count=" + count + ", heap=" + heap + '}';
     }
 
-    public T[] heapSort(T[] data) throws EmptyCollectionException {
+    public T[] heapSort() throws EmptyCollectionException {
         //Bonus: add a heapsort method to the array heap 
         //that returns a sorted array of generic elements.
+        
         ArrayHeap<T> temp = new ArrayHeap<>();
 
         //copy array into heap
-        for (int i = 0; i < data.length; i++) {
-            temp.addElement(data[i]);
+        for (int i = 0; i < heap.length; i++) {
+            if (heap[i] != null) {
+                temp.addElement(heap[i]);
+            } else {
+                break;
+            }
         }
 
         //place the sorted elements back into the array
         int c = 0;
         while (!temp.isEmpty()) {
-            data[c] = temp.removeMin();
-            c++;
+            if (heap[c] != null) {
+                heap[c] = temp.removeMin();
+                c++;
+            } else {
+                break;
+            }
+            
 
         }
-        return data;
+        return heap;
 
     }
 
