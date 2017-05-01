@@ -312,23 +312,22 @@ public class LinkedBinarySearchTree<T> extends LinkedBinaryTree implements Binar
      * @return a list of elements in the tree in q order
      */
     public ArrayList<T> getTreeAsList() {
-        
+
         ArrayList<T> tempList = new ArrayList<T>();
-        Queue<BTNode<T>> q  = new LinkedList<>();
+        Queue<BTNode<T>> q = new LinkedList<>();
         q.add(root);
-        while(!q.isEmpty()){
-         BTNode<T> node = q.poll();
-         if (node != null) {
-            tempList.add(node.getElement());
-            q.add(node.getLeftChild());
-            q.add(node.getRightChild());
-         } else {
-            tempList.add((T) "null");
-         }
+        while (!q.isEmpty()) {
+            BTNode<T> node = q.poll();
+            if (node != null) {
+                tempList.add(node.getElement());
+                q.add(node.getLeftChild());
+                q.add(node.getRightChild());
+            } else {
+                tempList.add((T) "null");
+            }
         }
-        
+
         return tempList;
-        
 
     }
     

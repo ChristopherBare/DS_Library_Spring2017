@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import org.junit.After;
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -157,18 +158,20 @@ public class ArrayHeapTest {
     @Test
     public void testHeapSort() throws Exception {
         System.out.println("heapSort");
-        int[] data = {2, 4, 6, 9, 3, 5, 10, 1};
-        
+        Integer[] data = {4, 2, 5};
         ArrayHeap<Integer> instance = new ArrayHeap<>();
-        for (int i = 0; i < data.length; i++){
+        for (int i = 0; i < data.length; i++) {
+            System.out.println("Adding data " + i);
             instance.addElement(data[i]);
-            
         }
-        //System.out.println(instance.toString());
-        Integer[] expResult = {1, 2, 3, 4, 5, 6, 9, 10};
-        Integer[] result = instance.heapSort();
-        //System.out.println(Arrays.toString(result));
-        assertArrayEquals(expResult, result);
+        Integer[] expResult = {2, 4, 5};
+        Integer[] result = null;
+        for (Integer x : instance.heapSort()) {
+            System.out.println("h");
+            System.out.println(x);
+        }
+        System.out.println(Arrays.toString(result));
+        Assert.assertArrayEquals(expResult, result);
         System.out.println(Arrays.toString(instance.heapSort()));
     }
     

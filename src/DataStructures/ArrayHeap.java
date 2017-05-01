@@ -5,6 +5,7 @@
  */
 package DataStructures;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -17,10 +18,13 @@ public class ArrayHeap<T> implements HeapADT<T> {
 
     private int count; // count points to next empty slot, also is size
     private T[] heap;
+    private T[] heapsort;
     private final int INIT_CAPACITY = 10;
 
+    @SuppressWarnings("unchecked")
     public ArrayHeap() {
         heap = (T[]) (new Object[INIT_CAPACITY]);
+        heapsort = (T[]) (new Object[heap.length]);
         count = 0;
     }
 
@@ -225,7 +229,7 @@ public class ArrayHeap<T> implements HeapADT<T> {
         return "ArrayHeap{" + "count=" + count + ", heap=" + heap + '}';
     }
 
-    public T[] heapSort() throws EmptyCollectionException {
+    T[] heapSort() throws EmptyCollectionException {
         //Bonus: add a heapsort method to the array heap 
         //that returns a sorted array of generic elements.
         
@@ -239,20 +243,18 @@ public class ArrayHeap<T> implements HeapADT<T> {
                 break;
             }
         }
-
+        
         //place the sorted elements back into the array
         int c = 0;
+        
+        
         while (!temp.isEmpty()) {
-            if (heap[c] != null) {
-                heap[c] = temp.removeMin();
-                c++;
-            } else {
-                break;
-            }
+            T t = temp.removeMin();
+            heapsort[c++] = t;
             
 
         }
-        return heap;
+        return heapsort;
 
     }
 
