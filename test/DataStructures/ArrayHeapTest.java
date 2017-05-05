@@ -154,6 +154,7 @@ public class ArrayHeapTest {
 
     /**
      * Test of heapSort method, of class ArrayHeap.
+     * @throws java.lang.Exception
      */
     @Test
     public void testHeapSort() throws Exception {

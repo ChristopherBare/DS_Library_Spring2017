@@ -173,18 +173,17 @@ public class AMGraph<T> implements GraphADT<T> {
         // checking through all their adjacencies and
         // enqueue them if they haven't been visited
         while (!traversalQueue.isEmpty()) {
-                x = traversalQueue.poll();
-                resultsList.add(vertices[x.intValue()]);
-                for (int i = 0; i < numVertices; i++) {
-                    if (matrix[x.intValue()][i] && !visited[i]) {
-                        traversalQueue.add(i);
-                        visited[i] = true;
-                    }
+            x = traversalQueue.poll();
+            resultsList.add(vertices[x.intValue()]);
+            for (int i = 0; i < numVertices; i++) {
+                if (matrix[x.intValue()][i] && !visited[i]) {
+                    traversalQueue.add(i);
+                    visited[i] = true;
                 }
-
+            }
 
         }
-        
+
         return resultsList;
     }
 

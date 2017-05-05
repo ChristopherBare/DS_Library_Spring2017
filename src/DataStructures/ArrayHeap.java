@@ -13,12 +13,13 @@ import java.util.Arrays;
  * An array-based maxHeap implementation.
  *
  * @author clatulip
+ * @param <T>
  */
 public class ArrayHeap<T> implements HeapADT<T> {
 
     private int count; // count points to next empty slot, also is size
     private T[] heap;
-    private T[] heapsort;
+    private T[] heapsort; //for the heapsort method
     private final int INIT_CAPACITY = 10;
 
     @SuppressWarnings("unchecked")
@@ -250,12 +251,26 @@ public class ArrayHeap<T> implements HeapADT<T> {
         
         while (!temp.isEmpty()) {
             T t = temp.removeMin();
-            heapsort[c++] = t;
+            getHeapsort()[c++] = t;
             
 
         }
-        return heapsort;
+        return getHeapsort();
 
+    }
+
+    /**
+     * @return the heapsort
+     */
+    public T[] getHeapsort() {
+        return heapsort;
+    }
+
+    /**
+     * @param heapsort the heapsort to set
+     */
+    public void setHeapsort(T[] heapsort) {
+        this.heapsort = heapsort;
     }
 
 }
