@@ -141,10 +141,7 @@ public class LinkedStackTest {
         LinkedStack<Integer> instance = new LinkedStack<>();
 
         for (int i = 0; i < 100; i++) {
-            instance.push(i);
-        }
-        for (int i = 0; i < 100; i++) {
-            int random = (int) Math.random() * 10;
+            int random = (int) (Math.random() * 10);
             if (random < 7) {
                 instance.push(random);
             }
@@ -154,6 +151,12 @@ public class LinkedStackTest {
                 }
             }
         }
+        System.out.println(instance.size());
+        //Assertions go here:
+        //Stack should not be empty
+        assertTrue(!instance.isEmpty());
+        //Checking the size is less than 100
+        assertTrue(instance.size() < 100);
     }
 
 }
