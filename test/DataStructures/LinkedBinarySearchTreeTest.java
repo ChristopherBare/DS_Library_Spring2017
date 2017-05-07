@@ -18,22 +18,22 @@ import static org.junit.Assert.*;
  * @author cbare3
  */
 public class LinkedBinarySearchTreeTest {
-    
+
     public LinkedBinarySearchTreeTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -49,7 +49,7 @@ public class LinkedBinarySearchTreeTest {
         instance.addElement(element);
         assertTrue(!(instance.isEmpty()));
         assertEquals(instance.getRootElement(), element);
-        
+
     }
 
     /**
@@ -66,7 +66,7 @@ public class LinkedBinarySearchTreeTest {
         int expResult = 1;
         Object result = instance.removeElement(element1);
         assertEquals(expResult, result);
-        
+
     }
 
     /**
@@ -84,7 +84,7 @@ public class LinkedBinarySearchTreeTest {
         instance.addElement(element2);
         instance.removeAllOccurrences(element);
         assertTrue(instance.getRootElement().equals(element2));
-        
+
     }
 
     /**
@@ -101,7 +101,7 @@ public class LinkedBinarySearchTreeTest {
         int expResult = 1;
         Object result = instance.removeMin();
         assertEquals(expResult, result);
-        
+
     }
 
     /**
@@ -118,7 +118,7 @@ public class LinkedBinarySearchTreeTest {
         int expResult = 1;
         Object result = instance.findMin();
         assertEquals(expResult, result);
-        
+
     }
 
     @Test
@@ -146,7 +146,7 @@ public class LinkedBinarySearchTreeTest {
         Object result = instance.find(element);
         assertEquals(expResult, result);
     }
-    
+
     @Test
     public void testNodeDepth() throws Exception {
         System.out.println("nodeDepth");
@@ -163,5 +163,55 @@ public class LinkedBinarySearchTreeTest {
     
 
     
+
     
+    /**
+     * Test of removeMax method, of class LinkedBinarySearchTree.
+     */
+    @Test
+    public void testRemoveMax() throws Exception {
+        System.out.println("removeMax");
+        int element = 1;
+        int element2 = 2;
+        LinkedBinarySearchTree<Integer> instance = new LinkedBinarySearchTree<>();
+        instance.addElement(element);
+        instance.addElement(element2);
+        int expResult = 2;
+        Object result = instance.removeMax();
+        assertEquals(expResult, result);
+        
+    }
+
+    
+
+    /**
+     * Test of findMax method, of class LinkedBinarySearchTree.
+     */
+    @Test
+    public void testFindMax() throws Exception {
+        System.out.println("findMax");
+        int element = 1;
+        int element2 = 2;
+        LinkedBinarySearchTree<Integer> instance = new LinkedBinarySearchTree<>();
+        instance.addElement(element);
+        instance.addElement(element2);
+        int expResult = 2;
+        Object result = instance.findMax();
+        assertEquals(expResult, result);
+        
+    }
+
+    /**
+     * Test of toString method, of class LinkedBinarySearchTree.
+     */
+    @Test
+    public void testToString() {
+        System.out.println("toString");
+        LinkedBinarySearchTree instance = new LinkedBinarySearchTree();
+        String expResult = "LinkedBinarySearchTree{" + instance.getTreeAsList().toString() + '}';
+        String result = instance.toString();
+        assertEquals(expResult, result);
+        
+    }
+
 }

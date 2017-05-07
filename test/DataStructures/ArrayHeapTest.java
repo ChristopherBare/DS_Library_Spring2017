@@ -165,15 +165,14 @@ public class ArrayHeapTest {
             System.out.println("Adding data " + i);
             instance.addElement(data[i]);
         }
-        Integer[] expResult = {2, 4, 5};
-        Integer[] result = null;
-        for (Integer x : instance.heapSort()) {
-            System.out.println("h");
-            System.out.println(x);
-        }
-        System.out.println(Arrays.toString(result));
-        Assert.assertArrayEquals(expResult, result);
         System.out.println(Arrays.toString(instance.heapSort()));
+        String expResult = "[5, 4, 2, null, null, null, null, null, null, null]";
+        //Integer[] result = new Integer[10];
+        String result = Arrays.toString(instance.heapSort());
+
+        
+        assertEquals(expResult, result);
+        
     }
     
 }

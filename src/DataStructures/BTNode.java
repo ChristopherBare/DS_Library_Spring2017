@@ -11,7 +11,7 @@ package DataStructures;
  */
 public class BTNode<T> {
     
-    private T element;
+    T element;
     private BTNode<T> leftChild;
     private BTNode<T> rightChild;
 
