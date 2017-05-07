@@ -39,6 +39,7 @@ public class LinkedStackTest {
 
     /**
      * Test of pop method, of class LinkedStack.
+     * @throws java.lang.Exception
      */
     @Test
     public void testPop() throws Exception {
@@ -115,6 +116,7 @@ public class LinkedStackTest {
 
     /**
      * Test of peek method, of class LinkedStack.
+     * @throws java.lang.Exception
      */
     @Test
     public void testPeek() throws Exception {
@@ -129,6 +131,29 @@ public class LinkedStackTest {
         String result = instance.peek();
         assertEquals(expResult, result);
 
+    }
+    /**
+     * Tests the bonus to push pop stuff. 
+     * @throws EmptyCollectionException 
+     */
+    @Test
+    public void testStack() throws EmptyCollectionException {
+        LinkedStack<Integer> instance = new LinkedStack<>();
+
+        for (int i = 0; i < 100; i++) {
+            instance.push(i);
+        }
+        for (int i = 0; i < 100; i++) {
+            int random = (int) Math.random() * 10;
+            if (random < 7) {
+                instance.push(random);
+            }
+            else if (random >= 7) {
+                if (!instance.isEmpty()) {
+                    instance.pop();
+                }
+            }
+        }
     }
 
 }
